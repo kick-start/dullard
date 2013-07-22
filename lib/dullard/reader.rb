@@ -33,10 +33,12 @@ class Dullard::Workbook
     @string_table
   end
 
+  # Returns Zip file object
   def zipfs
     @zipfs
   end
 
+  # Closes Zip file
   def close
     @zipfs.close
   end
@@ -52,6 +54,7 @@ class Dullard::Sheet
     @file = @workbook.zipfs.file.open(path) if @workbook.zipfs.file.exist?(path)
   end
 
+  # Reads workbook and returns i'th values
   def string_lookup(i)
     @workbook.string_table[i]
   end
